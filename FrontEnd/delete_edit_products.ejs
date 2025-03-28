@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa Sản Phẩm</title>
+</head>
+<body>
+    <h1>Xóa Và Sửa Sản Phẩm Theo Tên</h1>
+    
+    <form id="deleteProductForm">
+        <label for="productName">Nhập tên sản phẩm:</label>
+        <input type="text" id="productName" name="productName" required>
+        <button type="submit">Xóa Sản Phẩm</button>
+        <button type="editor" id="editButton">Sửa sản phẩm</button>
+    </form>
+
+    <div id="editForm" style="display:none;">
+        <h3>Sửa sản phẩm</h3>
+        
+        <label for="newProductName">Tên sản phẩm mới:</label>
+        <input type="text" id="newProductName" name="newProductName">
+        
+        <label for="newProductPrice">Giá mới:</label>
+        <input type="number" id="newProductPrice" name="newProductPrice">
+        
+        <label for="newProductCategory">Danh mục mới:</label>
+        <input type="text" id="newProductCategory" name="newProductCategory">
+        
+        <label for="newProductImage">Ảnh mới:</label>
+        <input type="text" id="newProductImage" name="newProductImage">
+        
+        <label for="newProductDiscount">Giảm giá mới:</label>
+        <input type="text" id="newProductDiscount" name="newProductDiscount">
+        
+        <label for="newProductDescription">Mô tả mới:</label>
+        <textarea id="newProductDescription" name="newProductDescription"></textarea>
+        
+        <label for="newProductNumber">Số lượng mới:</label>
+        <input type="number" id="newProductNumber" name="newProductNumber">
+        
+        <button type="submit" id="submitEdit">Cập nhật sản phẩm</button>
+    </div>
+
+    <p id="responseMessage"></p>
+
+    <script>
+        // Lắng nghe sự kiện submit form xóa sản phẩm
+document.getElementById('deleteProductForm').addEventListener('submit', function (event) {
+    event.preventDefault();  // Ngừng hành động mặc định của form
+
+    const productName = document.getElementById('productName').value;
+    const userID = localStorage.getItem('userID'); // Lấy userID từ localStorage
+    const role = localStorage.getItem('role'); // Lấy role từ localStorage
+
+    // Gửi yêu cầu xóa sản phẩm theo tên
+    fetch('/delete_product_by_name', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            productName,
+            userID,
+            role
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('responseMessage').textContent = data.message;
+    })
+    .catch(error => {
+        document.getElementById('responseMessage').textContent = 'Lỗi khi xóa sản phẩm: ' + error.message;
+    });
+});
+// Hiển thị form sửa sản phẩm khi nhấn nút "Sửa sản phẩm"
+document.getElementById('editButton').addEventListener('click', async function (e) {
+    e.preventDefault(); // Ngừng hành động mặc định của button (submit form)
+
+    const productName = document.getElementById('productName').value;
+    const userID = localStorage.getItem('userID'); // Lấy userID từ localStorage
+    const role = localStorage.getItem('role'); // Lấy role từ localStorage
+
+    if (!productName) {
+        alert('Vui lòng nhập tên sản phẩm!');
+        return;
+    }
+
+    // Gửi request PUT để kiểm tra xem sản phẩm có tồn tại không và quyền truy cập của người dùng
+    const response = await fetch(`/find_and_edit/${productName}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            newProductName: '', // Để trống vì không sửa gì ở lần này
+            newProductPrice: '', 
+            newProductCategory: '', 
+            newProductImage: '',
+            newProductDiscount: '',
+            newProductDescription: '',
+            newProductNumber: '',
+            userID: userID, // Thay thế bằng userID thực tế
+            role: role // Thay thế 'admin' bằng vai trò thực tế của người dùng
+        })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        // Nếu có lỗi từ server (sản phẩm không tồn tại hoặc quyền truy cập không hợp lệ)
+        alert(result.message);
+        return;
+    }
+
+    // Nếu sản phẩm tồn tại và người dùng có quyền sửa, hiển thị form sửa sản phẩm
+    document.getElementById('editForm').style.display = 'block';
+});
+
+// Khi nhấn "Cập nhật sản phẩm"
+document.getElementById('submitEdit').addEventListener('click', async function(e) {
+    e.preventDefault(); // Ngừng hành động mặc định của button (submit form)
+
+    // Lấy thông tin sản phẩm từ form
+    const productName = document.getElementById('productName').value;
+    const newProductName = document.getElementById('newProductName').value;
+    const newProductPrice = document.getElementById('newProductPrice').value;
+    const newProductCategory = document.getElementById('newProductCategory').value;
+    const newProductImage = document.getElementById('newProductImage').value;
+    const newProductDiscount = document.getElementById('newProductDiscount').value;
+    const newProductDescription = document.getElementById('newProductDescription').value;
+    const newProductNumber = document.getElementById('newProductNumber').value;
+
+    // Gửi request PUT đến API để cập nhật sản phẩm
+    const response = await fetch(`/find_and_edit/${productName}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            newProductName,
+            newProductPrice,
+            newProductCategory,
+            newProductImage,
+            newProductDiscount,
+            newProductDescription,
+            newProductNumber,
+            userID: 'user_id_here', // Thay thế user_id_here bằng ID người dùng thực tế
+            role: 'admin' // Thay thế 'admin' bằng vai trò thực tế của người dùng
+        })
+    });
+
+    const result = await response.json();
+    
+    if (response.ok) {
+        alert(result.message); // Thông báo thành công
+        document.getElementById('editForm').style.display = 'none';
+    } else {
+        alert(result.message); // Thông báo lỗi
+    }
+});
+    </script>
+</body>
+</html>

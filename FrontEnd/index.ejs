@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-links">
+            <a href="/signup" class="signup" id="signup">Đăng Ký</a>
+            <div class="khoanggiua" id="khoanggiua"></div>
+            <a href="/login" class="signup" id="login">Đăng nhập</a>
+            <a href="/user_information" class="signup" id="user-information">User information</a>
+        </div>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/Images/Logo.jpg" alt="">
+                </a>
+            </div>
+            <div class="search-cart">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm...">
+                <button type="submit">Tìm kiếm</button>
+                </div>
+                <div class="nav-cart">
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="ads">
+        <div class="main-image">
+            <img src="/Images/ads1.png" alt="" class="side">
+            <img src="/Images/ads2.png" alt="" class="side">
+            <img src="/Images/ads3.png" alt="" class="side">
+            <div class="prev-buttonads" onclick="plusSlides(-1)"><i class="fa-solid fa-arrow-left"></i></div>
+            <div class="next-buttonads" onclick="plusSlides(1)"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="side-images">
+            <div class="side-image">
+                <img src="/Images/ads1.png" alt="">
+            </div>
+            <div class="side-image">
+                <img src="/Images/ads2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="product-category">
+        <div class="header-product-category">DANH MỤC SẢN PHẨM</div>
+        <div class="grid">
+            <div class="item">
+                <div class="item-image"><a href="/product_category"><img src="/Images/ads1.png" alt=""></a></div>
+                <div class="item-label">Trang phục-Thời trang</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">Thiết bị điện tử</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">ĐỒNG HỒ</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">Thiết bị điện gia dụng</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">Phụ kiện-Trang sức</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">BALO-Túi sách</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">Bách hóa online</div>
+            </div>
+            <div class="item">
+                <div class="item-image"></div>
+                <div class="item-label">Khác</div>
+            </div>
+        </div>
+    </div>
+    <div class="suggestions-product">
+        <h2 class="section-title">GỢI Ý HÔM NAY</h2>
+        <div id="product-list" class="products-list">
+            <!-- Sản phẩm sẽ được render ở đây bởi JavaScript -->
+        </div>
+        </div>
+        <div class="view-more">
+            <button>Xem thêm</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo" style="color: white;">Fake</div>
+        </div>
+        <p class="footer-text">&copy; 2025 Fake. All Rights Reserved.</p>
+    </footer>
+</body>
+<script src="/index.js"></script>
+</html>
