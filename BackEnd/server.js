@@ -21,10 +21,10 @@ app.use(cors());
 // Cấu hình Express để sử dụng EJS làm template engine
 app.set('view engine', 'ejs');
 // Cấu hình thư mục views là thư mục frontend
-app.set('views', path.join(__dirname, '../FrontEnd'));
+app.set('views', path.join(__dirname, '.../FrontEnd'));
 
 // Cấu hình thư mục public để phục vụ các tệp tĩnh
-app.use(express.static(path.join(__dirname, '../FrontEnd/public')));  // Đây là thư mục chứa index.css và index.js
+app.use(express.static(path.join(__dirname, '.../FrontEnd/public')));  // Đây là thư mục chứa index.css và index.js
 
 // Kết nối MongoDB
 mongoose.connect('mongodb+srv://test:test123@usershop.2k4so.mongodb.net/DATN_PRO231?retryWrites=true&w=majority')
