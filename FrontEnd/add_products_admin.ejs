@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Thêm sản phẩm mới</h2>
+<form id="addProductForm">
+  <div>
+    <label for="name">Tên sản phẩm:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  
+  <div>
+    <label for="price">Giá:</label>
+    <input type="text" id="price" name="price" required>
+  </div>
+  
+  <div>
+    <label for="category">Danh mục:</label>
+    <input type="text" id="category" name="category" required>
+  </div>
+  
+  <div>
+    <label for="imageUrl">URL hình ảnh:</label>
+    <input type="text" id="imageUrl" name="imageUrl">
+  </div>
+  
+  <div>
+    <label for="discount">Giảm giá:</label>
+    <input type="text" id="discount" name="discount">
+  </div>
+  
+  <div>
+    <label for="description">Mô tả:</label>
+    <textarea id="description" name="description"></textarea>
+  </div>
+  
+  <div>
+    <label for="products_number">Số lượng:</label>
+    <input type="number" id="products_number" name="products_number" required>
+  </div>
+  <div>
+    <label for="discount_code">Số lượng:</label>
+    <input type="text" id="discount_code" name="discount_code" required>
+  </div>
+  <input type="hidden" id="productID" name="productID">
+  
+  <button type="submit">Thêm sản phẩm</button>
+</form>
+</body>
+<script>
+  document.getElementById('addProductForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Ngừng form mặc định
+
+    const formData = new FormData(this);
+    const data = {
+      name: formData.get('name'),
+      price: formData.get('price'),
+      category: formData.get('category'),
+      imageUrl: formData.get('imageUrl'),
+      discount: formData.get('discount'),
+      description: formData.get('description'),
+      products_number: formData.get('products_number'),
+      discountcode: formData.get('discount_code'),
+      userID: localStorage.getItem('userID')
+    };
+
+    try {
+      const response = await fetch('/add_product', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert('Sản phẩm đã được thêm thành công!');
+      } else {
+        alert(`Lỗi: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+      alert('Có lỗi xảy ra. Vui lòng thử lại!');
+    }
+  });
+</script>
+</html>

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user-information</title>
+    <link rel="stylesheet" href="/user_information.css">
+</head>
+<body>
+    <div class="header">
+        <div class="grid">
+            <nav class="header__navbar">
+                <ul class="header__navbar-btn">
+                    <li class="header__navbar-item">
+                        <a href="/"><img src="/Images/Logo.jpg" class="header__img" alt="Logo"></a>
+                    </li>
+                    <li class="header__navbar-btn-item">
+                        <button class="header__navbar-btn-item-btn" id="logoutbtn">Logout</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="app__container">
+        <div class="grid">
+            <div class="grid__row">
+                <div class="grid__column-4">
+                    <div class="auth-form">
+                        <h3 class="auth-form-heading">Thông tin người dùng</h3>
+                        <div class="auth-form-info">
+                            <label class="auth-form-info-label" for="name">Tên</label>
+                            <input type="text" id="name" class="auth-form-info-input" readonly>
+                    
+                            <label class="auth-form-info-label" for="email">Email</label>
+                            <input type="email" id="email" class="auth-form-info-input" readonly>
+                    
+                            <label class="auth-form-info-label" for="phone">Phone</label>
+                            <input type="text" id="phone" class="auth-form-info-input" readonly>
+                    
+                            <label class="auth-form-info-label" for="password">Mật khẩu</label>
+                            <input type="password" id="password" class="auth-form-info-input" readonly>
+                    
+                            <label class="auth-form-info-label" for="role">Vai trò</label>
+                            <input type="text" id="role" class="auth-form-info-input" readonly>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="grid__column-8">
+                    <div class="action-bar">
+                        <div class="action-bar-btn">
+                            <button class="action-bar-btn-item">Thêm</button>
+                            <button class="action-bar-btn-item">Xóa</button>
+                            <button class="action-bar-btn-item">Sửa</button>
+                        </div>
+                    </div>
+
+                    <!-- Form Thêm -->
+                    <form class="form-add" id="form-add" style="display: none;">
+                        <h3 class="form-add-heading">Thêm sản phẩm mới</h3>
+                        <div class="form-add-info">
+                            <label for="name" class="form-add-info-label">Tên sản phẩm</label>
+                            <input type="text" id="name-product-add" class="form-add-info-input" placeholder="Nhập tên sản phẩm" required>
+                            
+                            <label for="price" class="form-add-info-label">Giá</label>
+                            <input type="number" id="price-product-add" class="form-add-info-input" placeholder="Nhập giá sản phẩm" min="0" required>
+                            
+                            <label for="category" class="form-add-info-label">Danh mục</label>
+                            <select id="category-product-add" class="form-add-info-input" required>
+                                <option value="Quần áo nam">Quần áo nam</option>
+                                <option value="Quần áo nữ">Quần áo nữ</option>
+                                <option value="Phụ kiện">Phụ kiện</option>
+                            </select>
+                            
+                            <label for="image" class="form-add-info-label">URL Hình ảnh</label>
+                            <input type="text" id="image-product-add" class="form-add-info-input" placeholder="Nhập URL hình ảnh" required>
+                            
+                            <label for="discount" class="form-add-info-label">Giảm giá (VNĐ)</label>
+                            <input type="number" id="discount-product-add" class="form-add-info-input" placeholder="Nhập phần trăm giảm giá">
+                            
+                            <label for="discount-code" class="form-add-info-label">Mã giảm giá</label>
+                            <input type="text" id="discount-code-product-add" class="form-add-info-input" placeholder="Nhập mã giảm giá">
+                            
+                            <label for="description" class="form-add-info-label">Mô tả</label>
+                            <textarea id="description-product-add" class="form-add-info-textarea" rows="4" placeholder="Nhập mô tả sản phẩm..."></textarea>
+                            
+                            <label for="quantity" class="form-add-info-label">Số lượng sản phẩm</label>
+                            <input type="number" id="quantity-product-add" class="form-add-info-input" placeholder="Nhập số lượng sản phẩm" min="1" required>
+                            
+                            <label for="image-1" class="form-add-info-label">Ảnh phụ 1</label>
+                            <input type="text" id="image-1-product-add" class="form-add-info-input" placeholder="Nhập URL ảnh phụ 1">
+                            
+                            <label for="image-2" class="form-add-info-label">Ảnh phụ 2</label>
+                            <input type="text" id="image-2-product-add" class="form-add-info-input" placeholder="Nhập URL ảnh phụ 2">
+                            
+                            <label for="image-3" class="form-add-info-label">Ảnh phụ 3</label>
+                            <input type="text" id="image-3-product-add" class="form-add-info-input" placeholder="Nhập URL ảnh phụ 3">
+                        </div>
+                        <button id="submit-add-button">Thêm sản phẩm</button>
+                    </form>
+
+                    <!-- Form delete -->
+                    <form id="form-delete" class="form-delete" style="display: none;">
+                        <h3 class="form-delete-heading">Xóa sản phẩm</h3>
+                        <div class="form-delete-info">
+                            <label for="delete-name" class="form-delete-info-label">Nhập tên sản phẩm :</label>
+                            <input type="text" id="delete-name" class="form-delete-info-input" placeholder="Nhập tên sản phẩm cần xóa" required>
+                            <button type="submit" class="form-delete-info-btn">Xóa sản phẩm</button>
+                        </div>
+                    </form>
+
+                    <!-- Form xoá bình luận (admin)-->
+                    <form id="form-delete-admin" class="form-delete" style="display: none;">
+                        <h3 class="form-delete-heading">Xóa bình luận</h3>
+                        <div class="form-delete-info">
+                          <label for="delete-product-id" class="form-delete-info-label">Nhập ID sản phẩm cần xóa</label>
+                          <input type="text" id="delete-product-id" class="form-delete-info-input" placeholder="Nhập ID sản phẩm cần xóa" required>
+                        
+                          <label for="delete-comment-id" class="form-delete-info-label">Nhập ID bình luận cần xóa</label>
+                          <input type="text" id="delete-comment-id" class="form-delete-info-input" placeholder="Nhập ID bình luận cần xóa" required>
+                        
+                          <button type="submit" class="form-delete-info-btn">Xóa bình luận</button>
+                        </div>
+                      </form>
+                    <!-- Form edit -->
+                    <div class="form-edit-info hidden" id="form-edit-name" style="display: none;">
+                        <label for="name" class="form-edit-info-label">Tên sản phẩm</label>
+                        <input type="text" id="product-edit-name" name="product-name" class="form-edit-info-input"
+                            placeholder="Nhập tên sản phẩm cần sửa" required>
+                        <button type="button" id="editButton">Sửa sản phẩm</button>
+                    </div>
+                    
+                    <form id="form-edit" class="form-edit" style="display: none;">
+                        <h3 class="form-edit-heading">Sửa sản phẩm</h3>
+                        <div class="form-edit-info">
+                            <label for="name" class="form-edit-info-label">Sản phẩm mới</label>
+                            <input type="text" id="name-product-edit" name="newProductName" class="form-edit-info-input"
+                                placeholder="Nhập tên sản phẩm mới" required>
+                    
+                            <label for="price" class="form-edit-info-label">Giá mới</label>
+                            <input type="number" id="price-product-edit" name="newProductPrice" class="form-edit-info-input" min="0"
+                                placeholder="Nhập giá mới" required>
+                    
+                            <label for="category" class="form-edit-info-label">Danh mục</label>
+                            <select id="category--product-edit" name="newProductCategory" class="form-add-info-input" required>
+                                <option value="Quần áo nam">Quần áo nam</option>
+                                <option value="Quần áo nữ">Quần áo nữ</option>
+                                <option value="Phụ kiện">Phụ kiện</option>
+                            </select>
+                    
+                            <label for="image" class="form-edit-info-label">Ảnh mới</label>
+                            <input type="text" id="image-product-edit" name="newProductImage" class="form-edit-info-input"
+                                placeholder="Nhập hình ảnh">
+                    
+                            <label for="discount-code" class="form-add-info-label">Mã giảm giá</label>
+                            <input type="text" id="discount-code-product-edit" name="newProductDiscountCode" class="form-add-info-input"
+                                placeholder="Nhập mã giảm giá">
+                    
+                            <label for="discount" class="form-edit-info-label">Giảm giá mới (VNĐ)</label>
+                            <input type="number" id="discount-product-edit" name="newProductDiscount" class="form-edit-info-input"
+                                placeholder="Nhập giảm giá">
+                    
+                            <label for="description" class="form-edit-info-label">Mô tả mới</label>
+                            <textarea id="description-product-edit" name="newProductDescription" class="form-edit-info-textarea" rows="4"
+                                placeholder="Nhập mô tả sản phẩm..."></textarea>
+                    
+                            <label for="quantity" class="form-edit-info-label">Số lượng mới</label>
+                            <input type="number" id="quantity-product-edit" name="newProductNumber" class="form-edit-info-input" min="1"
+                                placeholder="Nhập số lượng" required>
+                    
+                            <label for="image1" class="form-add-info-label">Ảnh phụ 1</label>
+                            <input type="text" id="image1-product-edit" name="newProductImage1" class="form-add-info-input"
+                                placeholder="Nhập ảnh phụ 1">
+                    
+                            <label for="image2" class="form-add-info-label">Ảnh phụ 2</label>
+                            <input type="text" id="image2-product-edit" name="newProductImage2" class="form-add-info-input"
+                                placeholder="Nhập ảnh phụ 2">
+                    
+                            <label for="image3" class="form-add-info-label">Ảnh phụ 3</label>
+                            <input type="text" id="image3-product-edit" name="newProductImage3" class="form-add-info-input"
+                                placeholder="Nhập ảnh phụ 3">
+                    
+                            <button type="submit" class="form-edit-info-btn">Cập nhật sản phẩm</button>
+                        </div>
+                    </form>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">Fake</div>
+        </div>
+        <p class="footer-text">&copy; 2025 Fake. All Rights Reserved.</p>
+    </footer>
+    <script src="/user_information.js"></script>
+</body>
+</html>

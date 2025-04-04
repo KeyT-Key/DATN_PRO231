@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="category" class="form-edit-info-label">Danh mục</label>
+
+    <select id="category--product-edit" name="newProductCategory" class="form-add-info-input" required aria-label="Chọn danh mục sản phẩm">
+        <option value="Quần áo nam">Quần áo nam</option>
+        <option value="Quần áo nữ">Quần áo nữ</option>
+        <option value="Giày dép">Giày dép</option>
+    </select>
+    
+    <button onclick="getSelectedValue()">Lấy giá trị</button>
+    
+    <p id="selectedValue"></p>
+</body>
+<script>
+     function getSelectedValue() {
+    var selectedValue = document.getElementById("category--product-edit").value;
+    
+    // Hiển thị giá trị được chọn
+    document.getElementById("selectedValue").textContent = "Giá trị đã chọn: " + selectedValue;
+}
+</script>
+</html>

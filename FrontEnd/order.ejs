@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="grid">
+            <nav class="header__navbar">
+                <ul class="header__navbar-btn">
+                    <li class="header__navbar-item">
+                        <a href="/"><img src="/Images/Logo.jpg" class="header__img" alt="Logo"></a>
+                    </li>
+                    <li class="header__navbar-item">
+                        <h4 class="header__navbar-item-tittle">Thanh toán</h4>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="app__container">
+        <div class="container">
+            <div class="grid">
+                <div class="container__address">
+                    <h4 class="container__heading">
+                        <i class="container__heading-icon fa-solid fa-location-dot"></i>
+                        Địa chỉ nhận hàng
+                    </h4>
+                </div>
+                <div class="container__list-total">
+                    <ul class="container__list">
+                        <li class="container__list-item" id="userAddress">Địa chỉ: Chưa có địa chỉ nào</li>
+                    </ul>
+                    <ul class="container__list">
+                        <li class="container__list-item">
+                            <a href="#" class="container__list-item-link" id="changeAddress">Chọn địa chỉ</a>
+                        </li>
+                        <li class="container__list-item">
+                            <a href="#" class="container__list-item-link" id="addNewAddress">Thêm địa chỉ mới</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Modal -->
+                <div id="termsModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <h3>Thêm địa chỉ mới</h3>
+                        <div>
+                            <label for="adrres">Địa chỉ</label>
+                            <input type="text" id="adrres" name="adrres" required>
+                        </div>
+                        <button id="saveAddress">Lưu địa chỉ</button>
+                    </div>
+                </div>
+                <div id="selectAddressModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <h3>Chọn địa chỉ đã lưu</h3>
+                        <select id="addressSelect">
+                            <option value="">Chọn địa chỉ</option>
+                        </select>
+                        <button id="confirmAddress">Chọn địa chỉ</button>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <div class="container__product">
+            <ul class="container__product-heading">
+                <li class="container__product-item">
+                    <h4 class="container__product-titlte">Sản phẩm</h4>
+                </li>
+                <li class="container__product-item">Đơn giá</li>
+                <li class="container__product-item">Số lượng</li>
+                <li class="container__product-item">Thành tiền</li>
+            </ul>
+
+
+            <div class="cart-item" id="cart-item">
+
+            </div>
+        </div>
+
+        <div class="cart-item-shop-voucher">
+            <h4 class="cart-item-shop-voucher-item">
+                
+            </h4>
+            <a href="#" class="cart-item-shop-voucher-link">Chọn Voucher</a>
+        </div>
+        
+        <!-- Modal để chọn Voucher -->
+        <div id="voucher-modal" class="voucher-modal" style="display: none;">
+            <div class="voucher-modal-content">
+                <h4>Chọn Voucher giảm giá</h4>
+                <input type="text" id="discount-code-input" placeholder="Nhập mã giảm giá" class="cart-item-shop-voucher-input">
+                <button id="apply-discount-btn" class="cart-item-shop-voucher-btn">Áp dụng</button>
+                <ul id="voucher-list"></ul>
+                <button id="close-voucher-modal" class="voucher-modal-close">Đóng</button>
+            </div>
+        </div>
+        
+        <div class="cart-item-payment">
+            <h4 class="cart-item-payment-title">Phương thức thanh toán</h4>
+            <ul class="cart-item-payment-list">
+                <li class="cart-item-payment-list-item">Thanh toán khi nhận hàng</li>
+            </ul>
+        </div>
+        
+        <div class="cart-item-total-payment">
+            <div class="cart-item-total-payment-content">
+                <!-- Tổng tiền hàng -->
+                <ul class="cart-item-total-payment-list">
+                    <li class="cart-item-total-payment-list-item">Tổng tiền hàng</li>
+                    <li class="cart-item-total-payment-list-item" id="total-price-product">0 VNĐ</li>
+                </ul>
+                
+                <!-- Voucher giảm giá -->
+                <ul class="cart-item-total-payment-list">
+                    <li class="cart-item-total-payment-list-item">Voucher giảm giá</li>
+                    <li class="cart-item-total-payment-list-item" id="voucher-discount">0 VNĐ</li>
+                </ul>
+        
+                <!-- Tổng thanh toán -->
+                <ul class="cart-item-total-payment-list">
+                    <li class="cart-item-total-payment-list-item">Tổng thanh toán</li>
+                    <li class="cart-item-total-payment-list-item-price">
+                        <h4 id="total-payment-price">0 VNĐ</h4>
+                        <h4>Đã bao gồm thuế</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cart-item-shop-footer">
+            <ul class="cart-item-shop-footer-list">
+                <li class="cart-item-shop-footer-list-item">
+                    Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo điều khoản
+                    <a class="cart-item-shop-footer-list-item-link" href="#">Điều khoản FakeShoppe</a>
+                </li>
+                <li class="cart-item-shop-footer-list-item">
+                    <button class="cart-item-shop-footer-list-item-btn" id="btn-order">Đặt hàng</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo" style="color: white;">Fake</div>
+        </div>
+        <p class="footer-text">&copy; 2025 Fake. All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="/order.js"></script>
+    
+    
+</body>
+</html>

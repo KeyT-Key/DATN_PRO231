@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-links">
+          <a href="/signup" class="signup" id="signup">Đăng Ký</a>
+          <div class="khoanggiua" id="khoanggiua"></div>
+          <a href="/login" class="signup" id="login">Đăng nhập</a>
+          <a href="/user_information" class="signup" id="user-information">User information</a>
+        </div>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/Images/Logo.jpg" alt="">
+                </a>
+                <p class="cart-text">| Giỏ hàng</p>
+            </div>
+        </div>
+    </header>
+    <div id="cart-container">
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Tên Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Giá</th>
+            <th>Tổng Giá</th>
+            <th>Thao Tác</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+
+        </tbody>
+      </table>
+  
+      <div id="total-price">
+        <strong>Tổng Tiền: </strong><span id="total-price-value"></span> VND
+      </div>
+  
+      <a href="/order" class="checkout-btn"><button id="checkout-btn">Mua hàng</button></a>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo" style="color: white;">Fake</div>
+        </div>
+        <p class="footer-text">&copy; 2025 Fake. All Rights Reserved.</p>
+    </footer>
+</body>
+<script src="/cart.js"></script>
+</html>

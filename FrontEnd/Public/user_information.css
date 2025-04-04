@@ -1,0 +1,302 @@
+  * { /*reset css*/
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #f5f5f5;
+}
+
+
+.grid {
+    width: 1400px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap; /*tu dong xuong hang neu vuot qua grid__row*/
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.grid__column-4{
+    width: 33.333%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.grid__column-8{
+    width: 66.6667%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.header__img {
+    width: 200px;
+    height: 60px;
+    max-height: 60px;
+}
+
+.header{
+    background-color: rgb(56, 64, 75);
+    padding: 20px 40px;
+    padding-left: 170px;
+}
+
+.header__navbar-btn{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__navbar-btn-item-btn{
+    /* padding: 10px 20px;
+    border: none;
+    background-color:  blue;
+    color: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer; */
+    margin-bottom: 5px;
+    background-color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(56, 64, 75);
+    font-size: 1rem;
+}
+
+.header__navbar-btn-item{
+    padding-right: 153px;
+    display: flex;
+    gap: 18px;
+}
+
+.auth-form{
+    margin-top: 10px;
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề form */
+.auth-form-heading {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+/* Ô input */
+.auth-form-info-label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.auth-form-info-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+} 
+
+.action-bar{
+    background-color:  rgb(56, 64, 75);
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.action-bar-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.action-bar-btn-item{
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+}
+
+/* Add */
+.form-add{
+    margin: auto;
+    margin-top: 10px;
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-add-heading{
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.form-add-info-label{
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-add-info-input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-add-info textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    resize: vertical; /* Cho phép thay đổi chiều cao */
+    min-height: 20px; /* Đặt chiều cao tối thiểu */
+}
+
+/* Form delete */
+.form-delete {
+    margin: auto;
+    margin-top: 10px;
+    width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-delete-heading {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+
+.form-delete-info-label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.form-delete-info-input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-delete-info-btn{
+    margin-top: 10px;
+    width: 100%;
+    background-color:  blue;
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Form edit */
+.form-edit {
+    margin: auto;
+    margin-top: 10px;
+    width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-edit-heading {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.form-edit-info-label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+}
+
+.form-edit-info-input,
+.form-edit-info-textarea {
+    width: 100%;  /* Giảm chiều rộng */
+    padding: 6px; /* Giảm padding để input nhỏ hơn */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Giảm kích thước chữ */
+    outline: none;
+}
+
+.form-edit-info-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-edit-info-btn {
+    margin-top: 15px;
+    width: 100%;
+    background-color: blue;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-edit-info-btn:hover {
+    background-color: darkblue;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    top: 100px;
+    width: 100vw;
+    background-color: #38404b;
+    padding: 25px 0;
+    margin-top: 40px;
+    margin-left: -25px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 14px;
+    color: #ddd;
+}

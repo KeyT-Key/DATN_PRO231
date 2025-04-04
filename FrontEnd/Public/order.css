@@ -1,0 +1,662 @@
+* { /*reset css*/
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: #f0f0f0;
+}
+
+.grid {
+    width: 1400px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap; /*tu dong xuong hang neu vuot qua grid__row*/
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.header__img {
+    width: 200px;
+    height: 60px;
+    max-height: 60px;
+}
+
+.header{
+    background-color: #38404b;
+    padding: 20px 40px;
+    padding-left: 170px;
+}
+
+.header__navbar-btn{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header__navbar-item-tittle{
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-left: 20px;
+    color: white;
+}
+
+/* Container */
+.container__heading{
+    padding-top: 20px;
+    padding-left: 40px;
+    color: red;
+    font-weight: 100;
+}
+
+.container{
+    background-color: white;
+    margin-top: 10px;
+}
+
+.container__list-total{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container__list{
+    display: flex;
+}
+
+.container__list-item{
+    list-style: none;
+    margin: 20px 40px;
+    font-size: 1rem;
+}
+
+.container__list-item-btn{
+    padding: 1px 3px;
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+
+.container__list-item-link{
+    text-decoration: none;
+}
+
+.container__heading-icon{
+    color: red;
+    font-size: 0.9rem;
+}
+
+.container__product{
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px 0;
+}
+
+.container__product-heading{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* Chia cột với tỉ lệ hợp lý */
+    align-items: center;
+    padding: 20px 40px;
+    height: 30px;
+}
+
+.container__product-titlte{
+    font-size: 1.1rem;
+    font-weight: 100;
+    text-align: left;
+    color: black;
+}
+
+.container__product-item{
+    list-style: none;
+    font-size: 0.8rem;
+    text-align: right;
+    color: #888;
+}
+
+.container__product-actions{
+    display: flex;
+}
+
+.container__product-favo {
+    display: flex;
+    padding: 20px 40px 10px;
+}
+
+.container__product-btn {
+    margin-right: 4px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+    height: 16px;
+    width: 65px;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 2px;
+}
+
+.container__product-content {
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.container__product-content::after{
+    content: "";
+    position: absolute;
+    width: 0.2px;
+    height: 16px;
+    background-color: #888;
+    left: 98px;
+    opacity: 0.2;
+}
+
+.container__product-chat {
+    padding: 20px 10px;
+    position: relative;
+    left: -18px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.container__product-chat-icon {
+    font-size: 0.8rem;
+}
+
+.cart-item{
+    padding: 30px 40px;
+    /* grid-template-columns: 2fr 1fr 1fr 1fr; */
+
+}
+
+.product-img-item{
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.product-info{
+    position: relative;
+    left: 60px;
+    top: -50px;
+    list-style: none;
+    text-align: left;
+}
+
+.pre-order{
+    position: relative;
+}
+
+.pre-order-btn{
+   border: 1px solid red;
+   padding: 1px;
+   border-radius: 2px;
+   background-color: white;
+   color: red;
+   font-size: 0.7rem;
+}
+
+.product-name{
+   font-size: 0.9rem;
+}
+
+.type-product{
+    font-size: 0.9rem;
+    opacity: 0.6;
+    color: #888;
+    position: relative;
+    left: 400px;
+    top: -66px;
+}
+
+.total-price{
+    position: relative;
+    top: -78px;
+    display: grid;
+    margin-left: 400px;
+    grid-template-columns: 3fr 1.9fr 2fr;
+}
+
+.total-price-item{
+    /* padding-left: 120px;
+    padding-right: 30px;
+    font-size: 0.9rem;
+    position: relative;
+    top: -86px; */
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-item-footer{
+    background-color: white;
+    /* /* display: flex;
+    justify-content: center;
+    padding: 20px 40px;
+    margin-top: 3px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px 40px;
+    margin-top: 3px;
+} 
+
+.cart-item-footer-title{
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+.cart-item-footer-icon{
+    color: red;
+}
+
+.cart-item-footer-link{
+    position: absolute;
+    right: 0;
+    margin: 40px;
+}
+
+.cart-item-footer-btn{
+    padding: 0.9px;
+    color: red;
+    border: 1px solid red;
+    
+}
+
+.cart-item-footer-a{
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.cart-item-shop-voucher{
+    margin-top: 16px;
+    padding: 20px 40px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-shop-voucher a{
+    text-decoration: none;
+    font-size: 0.7rem;
+}
+
+.cart-item-shop-voucher-item{
+    font-size: 0.9rem;
+    font-weight: 200;
+}
+
+.cart-item-shop-voucher-item-icon{
+    color: red;
+}
+
+.cart-item-coin-shop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1px;
+    text-align: right;
+    padding: 20px 40px;
+    background-color: white;
+}
+
+.cart-item-coin-shop-list{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-coin-shop-heading{
+    font-size: 0.9rem;
+    font-weight: 200;
+    margin-right: 18px;
+    color: black;
+}
+
+.cart-item-coin-shop-icon{
+    color: orange;
+}
+
+.cart-item-coin-shop-item{
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    color: #888;
+}
+
+.cart-item-coin-shop-btn{
+    padding: 0 5px;
+    border: none;
+    border-radius: 2px;
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+.cart-item-payment{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.cart-item-payment-list{
+    display: flex;
+}
+
+.cart-item-payment-title{
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.cart-item-payment-list-item{
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.cart-item-payment-list-item-link{
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 0.9rem;
+}
+
+.cart-item-total-payment{
+    background-color: white;
+    margin-top: 2px;
+    padding: 20px 40px;
+}
+
+.cart-item-total-payment-content{
+    margin-left: auto;
+    width: 30%;
+}
+
+.cart-item-total-payment-list{
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-total-payment-list-item{
+    font-size: 0.8rem;
+    list-style: none;
+    color: #888;
+    padding: 10px;
+}
+
+.cart-item-total-payment-list-item:first-child{
+    /* margin-left: auto; */
+    width: 100%;
+}
+
+.cart-item-total-payment-list-item:last-child{
+    margin-left: 200px;
+    color: black;
+}
+
+.cart-item-total-payment-list-item-price{
+    list-style: none;
+    width: 100%;
+    text-align: right;
+}
+
+.cart-item-total-payment-list-item-price h4:first-child{
+    color: red;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.cart-item-total-payment-list-item-price h4:last-child{
+    font-size: 0.7rem;
+    color: #888;
+    font-weight: 200;
+}
+
+.cart-item-shop-footer{
+    padding: 20px 40px;
+    margin-top: 2px;
+    background-color: white;
+}
+
+.cart-item-shop-footer-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-shop-footer-list-item{
+    font-size: 0.8rem;
+    list-style: none;
+}
+
+.cart-item-shop-footer-list-item-link{
+    text-decoration: none;
+}
+
+.cart-item-shop-footer-list-item-btn{
+    padding: 10px 50px;
+    border: none;
+    color: white;
+    background-color: red;
+    border-radius: 2px;
+}
+
+footer {
+    position: relative;
+    top: 100px;
+    width: 100vw;
+    background-color: #38404b;
+    padding: 25px 0;
+    margin-top: 40px;
+    margin-left: -25px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 14px;
+    color: #ddd;
+}
+
+/* Modal nền mờ */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hộp nội dung modal */
+.modal-content {
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    border-radius: 12px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Tiêu đề modal */
+.modal-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Input và select */
+.modal-content input,
+.modal-content select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng focus cho input */
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Nút bấm */
+.modal-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 90%;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Modal voucher */
+/* Modal nền mờ */
+.voucher-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+/* Hộp nội dung modal */
+.voucher-modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px; /* Định kích thước rõ ràng */
+    max-width: 90%; /* Đảm bảo không quá lớn */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    transform: translateX(130%);
+    top: 30%;
+}
+
+/* Tiêu đề modal */
+.voucher-modal-content h4 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Input nhập mã giảm giá */
+.cart-item-shop-voucher-input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng focus cho input */
+.cart-item-shop-voucher-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Danh sách voucher */
+#voucher-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+#voucher-list li {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#voucher-list li:hover {
+    background-color: #e9ecef;
+}
+
+/* Nút áp dụng */
+.cart-item-shop-voucher-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 90%;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cart-item-shop-voucher-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Nút đóng modal */
+.voucher-modal-close {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 90%;
+    margin-top: 10px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.voucher-modal-close:hover {
+    background-color: #b02a37;
+}
+
+
+
